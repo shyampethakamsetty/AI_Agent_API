@@ -1,0 +1,51 @@
+{
+  "name": "ai-agent-server",
+  "version": "1.0.0",
+  "description": "Pluggable AI Agent Server with RAG + Memory + Plugin System",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write src/**/*.ts",
+    "docker:build": "docker build -t ai-agent-server .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env ai-agent-server",
+    "docker:compose": "docker-compose up -d",
+    "docker:compose:dev": "docker-compose --profile dev up -d",
+    "docker:logs": "docker-compose logs -f",
+    "docker:stop": "docker-compose down"
+  },
+  "keywords": ["ai", "agent", "rag", "openai", "chromadb", "typescript"],
+  "author": "AI Agent Assignment",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1",
+    "openai": "^4.20.1",
+    "chromadb": "^1.7.3",
+    "axios": "^1.6.2",
+    "uuid": "^9.0.1",
+    "mathjs": "^12.2.1",
+    "node-cron": "^3.0.3",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.10.4",
+    "@types/uuid": "^9.0.7",
+    "@types/node-cron": "^3.0.11",
+    "typescript": "^5.3.3",
+    "ts-node-dev": "^2.0.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8",
+    "eslint": "^8.55.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "prettier": "^3.1.0"
+  }
+} 
