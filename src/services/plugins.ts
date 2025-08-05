@@ -240,7 +240,7 @@ export class PluginManager {
   private extractMathExpression(message: string): string | null {
     // Look for mathematical expressions
     const patterns = [
-      /(\d+\s*[\+\-\*\/]\s*\d+)/g,
+      /(\d+\s*[\+\-\*\/]\s*\d+)/,
       /calculate\s+(.+)/i,
       /solve\s+(.+)/i,
     ];

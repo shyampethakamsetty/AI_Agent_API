@@ -115,7 +115,7 @@ export class AgentService {
       const path = require('path');
       
       // Path to the sample markdown files
-      const docsPath = path.join(process.cwd(), 'assignment_details', 'sample-md-files');
+      const docsPath = path.join(process.cwd(), 'sample-md-files');
       
       if (!fs.existsSync(docsPath)) {
         logger.warn('Sample documents directory not found, skipping document loading');
