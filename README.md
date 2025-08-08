@@ -37,7 +37,7 @@ A **TypeScript-based AI agent server** with RAG (Retrieval-Augmented Generation)
 
 ### ✨ Interactive Chat Interface
 
-**[🎯 Try it now →](https://chat-interface-ruby.vercel.app/)**
+**https://chat-interface-ruby.vercel.app**
 
 *Experience the AI agent in action with a beautiful web interface!*
 
