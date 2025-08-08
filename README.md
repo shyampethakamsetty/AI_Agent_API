@@ -2,6 +2,35 @@
 
 A **TypeScript-based AI agent server** with RAG (Retrieval-Augmented Generation), memory management, and plugin system. Built for the internship assignment with OpenAI GPT-4 integration.
 
+
+## 📋 Prerequisites
+
+- Node.js 18+
+- OpenAI API key
+- WeatherAPI.com key (optional)
+
+## 🛠️ Installation
+
+1. **Clone and install**
+   ```bash
+   git clone <repository-url>
+   cd ai-agent-server
+   npm install
+   ```
+
+2. **Set environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your API keys
+   ```
+
+3. **Build and start**
+   ```bash
+   npm run build
+   npm start
+   ```
+
+
 ## 🚀 Test Here (All origins Allowed)
 
 <div align="center">
@@ -214,33 +243,6 @@ curl https://ai-agent-api-pqoa.onrender.com/
 │  └── Intent Detection                                       │
 └─────────────────────────────────────────────────────────────┘
 ```
-
-## 📋 Prerequisites
-
-- Node.js 18+
-- OpenAI API key
-- WeatherAPI.com key (optional)
-
-## 🛠️ Installation
-
-1. **Clone and install**
-   ```bash
-   git clone <repository-url>
-   cd ai-agent-server
-   npm install
-   ```
-
-2. **Set environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your API keys
-   ```
-
-3. **Build and start**
-   ```bash
-   npm run build
-   npm start
-   ```
 
 ## 🎯 API Endpoints
 
