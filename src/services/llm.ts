@@ -53,7 +53,13 @@ export class LLMService {
   private constructPrompt(context: PromptContext): string {
     let prompt = context.systemInstructions + '\n\n';
 
-    // Add memory context
+    // Add memory summary (last two messages)
+    if (context.memorySummary && context.memorySummary.trim().length > 0) {
+      prompt += 'MEMORY SUMMARY (last 2):\n';
+      prompt += `${context.memorySummary}\n\n`;
+    }
+
+    // Add memory context (raw recent turns)
     if (context.memory.length > 0) {
       prompt += 'MEMORY CONTEXT:\n';
       prompt += this.formatMemory(context.memory);

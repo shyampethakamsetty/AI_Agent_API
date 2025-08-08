@@ -58,24 +58,24 @@ export class MemoryService {
   }
 
   /**
-   * Create a memory summary for the session
+   * Create a concise summary of the last two messages in the session
    */
   async createMemorySummary(sessionId: string): Promise<string> {
     const messages = await this.getSession(sessionId);
-    
+
     if (messages.length === 0) {
       return 'No previous conversation';
     }
 
-    // Extract topics from recent messages
-    const recentMessages = messages.slice(-4); // Last 4 messages
-    const topics = this.extractTopics(recentMessages);
-    
-    if (topics.length === 0) {
-      return 'Previous conversation available';
-    }
+    const lastTwo = messages.slice(-2);
 
-    return `Previous conversation about: ${topics.join(', ')}`;
+    const format = (entry: MemoryEntry) => {
+      // Collapse whitespace and truncate long messages for brevity
+      const collapsed = entry.content.replace(/\s+/g, ' ').trim();
+      return `${entry.role}: ${collapsed.length > 240 ? collapsed.slice(0, 237) + '...' : collapsed}`;
+    };
+
+    return lastTwo.map(format).join(' | ');
   }
 
   /**

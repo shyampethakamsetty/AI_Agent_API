@@ -100,6 +100,7 @@ export interface PromptContext {
   context: string[];
   plugins: PluginResult[];
   userMessage: string;
+  memorySummary?: string;
 }
 
 // ChromaDB types

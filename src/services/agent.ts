@@ -26,18 +26,14 @@ export class AgentService {
       // Step 3: Execute plugins if needed
       const pluginResults = await pluginManager.executePlugins(intent);
 
-      // Step 4: Only do RAG if no plugins were called or if it's a knowledge query
-      let contextChunks: string[] = [];
-      if (intent.plugins.length === 0 || intent.type === 'general_knowledge') {
-        const searchResults = await vectorDBService.search(
-          message.message,
-          config.rag.topK,
-          config.rag.similarityThreshold
-        );
-        
-        contextChunks = searchResults.map(result => result.content);
-        logger.info(`Found ${contextChunks.length} relevant documents for query`);
-      }
+      // Step 4: Perform RAG on every message
+      const searchResults = await vectorDBService.search(
+        message.message,
+        config.rag.topK,
+        config.rag.similarityThreshold
+      );
+      const contextChunks: string[] = searchResults.map(result => result.content);
+      logger.info(`Found ${contextChunks.length} relevant documents for query`);
 
       // Step 5: Construct prompt context
       const promptContext: PromptContext = {
@@ -46,6 +42,7 @@ export class AgentService {
         context: contextChunks,
         plugins: pluginResults,
         userMessage: message.message,
+        memorySummary,
       };
 
       // Step 6: Generate response using LLM
