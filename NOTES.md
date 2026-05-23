@@ -19,7 +19,7 @@ The following implementation work was reviewed by me:
 - OpenAI API errors when embedding large text: switched to chunked embedding and added error handling with clear messages.
 - Location extraction for weather queries occasionally misfired on common words: added filtering of common stop words and multiple regex patterns.
 - RAG sometimes didn’t run for plugin queries: changed flow to always run vector search each turn.
-- Since I used Render for backend deployment, I faced server down issue which it shutsdown server if no request was recieved for 15 mins, So i used Uptime Robot to keep sending requests (health checks) for every 5 minutes
+- Since I used Render for backend deployment, I faced server down issue which it shutsdown server if no request was received for 15 mins, So i used Uptime Robot to keep sending requests (health checks) for every 5 minutes
 
 ## How the agent routes plugin calls + embeds memory + context
 1. Detects intent via keyword scan and light parameter extraction.
